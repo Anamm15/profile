@@ -82,7 +82,7 @@ const Contact = () => {
           </p>
           <div className="mx-auto mt-4 h-1 w-24 rounded bg-gradient-to-r from-cyan-500 to-blue-600 md:mx-0"></div>
           <p className="mt-6 text-lg text-neutral-300">
-            Have an interesting project or just want to say hello? I'd love to
+            Have an interesting project or just want to say hello? I had love to
             hear from you. Contact me via email, social media, or fill out the
             form below.
           </p>
@@ -135,7 +135,7 @@ const Contact = () => {
               htmlFor="name"
               className="mb-2 block text-sm font-medium text-neutral-300"
             >
-              Nama
+              Name
             </label>
             <input
               type="text"
@@ -169,7 +169,7 @@ const Contact = () => {
               htmlFor="message"
               className="mb-2 block text-sm font-medium text-neutral-300"
             >
-              Pesan
+              Message
             </label>
             <textarea
               id="message"
@@ -188,7 +188,9 @@ const Contact = () => {
             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             whileTap={{ scale: 0.95 }}
           >
-            {submissionStatus === "sending" ? "Mengirim..." : "Kirim Pesan"}
+            {submissionStatus === "sending"
+              ? "Sending..."
+              : "Send me a message"}
             <Send
               className={`h-5 w-5 transition-transform duration-300 ${
                 submissionStatus !== "sending"
@@ -197,15 +199,14 @@ const Contact = () => {
               }`}
             />
           </motion.button>
-          {/* Pesan Status Pengiriman */}
           {submissionStatus === "success" && (
             <p className="text-center text-green-400">
-              Pesan berhasil terkirim. Terima kasih!
+              Your message has sent. Thank You!
             </p>
           )}
           {submissionStatus === "error" && (
             <p className="text-center text-red-400">
-              Terjadi kesalahan. Silakan coba lagi.
+              An error occured. Please Try Again
             </p>
           )}
         </motion.form>

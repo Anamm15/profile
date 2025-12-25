@@ -14,23 +14,23 @@ interface ExperienceData {
 const experienceData: ExperienceData[] = [
   {
     role: "Freelance Web Developer",
-    company: "Berbagai Klien",
-    duration: "Jan 2023 - Sekarang",
+    company: "Multiple Clients",
+    duration: "Jan 2023 - Present",
     description: [
-      "Merancang dan mengembangkan website dan aplikasi web end-to-end sesuai kebutuhan klien.",
-      "Berkomunikasi langsung dengan klien untuk mengumpulkan persyaratan, memberikan pembaruan, dan memastikan kepuasan.",
-      "Mengelola deployment, pemeliharaan, dan optimisasi performa untuk berbagai proyek.",
+      "Designed and developed end to end websites and web applications based on client requirements.",
+      "Communicated directly with clients to gather requirements, provide progress updates, and ensure satisfaction.",
+      "Handled deployment, maintenance, and performance optimization across multiple projects.",
     ],
     tags: ["React", "Next.js", "Node.js", "PostgreSQL", "Vercel", "Figma"],
   },
   {
-    role: "Full-Stack Developer",
+    role: "Full Stack Developer",
     company: "Tech Solutions Inc.",
-    duration: "Jun 2021 - Des 2022",
+    duration: "Jun 2021 - Dec 2022",
     description: [
-      "Berkontribusi dalam tim untuk membangun platform SaaS yang kompleks dari awal.",
-      "Mengembangkan fitur backend menggunakan Express.js dan mengelola database MongoDB.",
-      "Membangun antarmuka pengguna yang responsif dan interaktif dengan TypeScript dan React.",
+      "Collaborated within a team to build a complex SaaS platform from scratch.",
+      "Developed backend features using Express.js and managed MongoDB databases.",
+      "Built responsive and interactive user interfaces using TypeScript and React.",
     ],
     tags: ["TypeScript", "React", "Express.js", "MongoDB", "Docker", "AWS"],
   },

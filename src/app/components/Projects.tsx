@@ -15,29 +15,29 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: "Platform E-commerce Modern",
+    title: "Modern E commerce Platform",
     description:
-      "Sebuah platform e-commerce yang dibangun dengan Next.js, Redux Toolkit, dan integrasi pembayaran Stripe.",
+      "A modern e commerce platform built with Next.js, Redux Toolkit, and Stripe payment integration.",
     tags: ["Next.js", "React", "Tailwind CSS", "Stripe", "Redux"],
-    image: "https://placehold.co/600x400/171717/38bdf8?text=Proyek+1",
+    image: "https://placehold.co/600x400/171717/38bdf8?text=Project+1",
     github: "#",
     live: "#",
   },
   {
-    title: "Aplikasi Dashboard Analitik",
+    title: "Analytics Dashboard Application",
     description:
-      "Dashboard untuk visualisasi data pengguna dengan chart interaktif menggunakan Chart.js dan otentikasi NextAuth.",
+      "A dashboard for user data visualization with interactive charts using Chart.js and authentication with NextAuth.",
     tags: ["React", "Chart.js", "NextAuth", "TypeScript"],
-    image: "https://placehold.co/600x400/171717/38bdf8?text=Proyek+2",
+    image: "https://placehold.co/600x400/171717/38bdf8?text=Project+2",
     github: "#",
     live: "#",
   },
   {
-    title: "Website Landing Page SaaS",
+    title: "SaaS Landing Page Website",
     description:
-      "Landing page untuk produk software-as-a-service dengan fokus pada animasi scroll dan desain yang bersih.",
+      "A landing page for a software as a service product with a focus on scroll animations and clean design.",
     tags: ["HTML5", "CSS3", "JavaScript", "Framer Motion"],
-    image: "https://placehold.co/600x400/171717/38bdf8?text=Proyek+3",
+    image: "https://placehold.co/600x400/171717/38bdf8?text=Project+3",
     github: "#",
     live: "#",
   },

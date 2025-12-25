@@ -2,15 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Home,
-  User,
-  Briefcase,
-  Cpu,
-  TrendingUp,
-  Mail,
-  Code,
-} from "lucide-react";
+import { Home, User, Cpu, TrendingUp, Mail, Code } from "lucide-react";
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("Home");

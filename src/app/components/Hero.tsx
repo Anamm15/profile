@@ -58,7 +58,7 @@ const Hero = () => {
               variants={itemVariants}
               className="text-4xl font-bold md:text-5xl lg:text-6xl"
             >
-              <span className="mb-2 block text-lg">Hii, I'm</span>
+              <span className="mb-2 block text-lg">Hii, I am</span>
               <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                 Choirul Anam
               </span>
@@ -87,7 +87,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Lihat Proyek Saya
+                  Take a Look On My Project
                   <MoveRight
                     className="transition-transform duration-300 group-hover:translate-x-1"
                     size={20}
@@ -100,7 +100,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Hubungi Saya
+                  Contact Me
                 </motion.button>
               </a>
             </motion.div>

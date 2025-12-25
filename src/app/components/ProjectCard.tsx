@@ -1,6 +1,7 @@
 import { Project } from "@/types";
 import { motion } from "framer-motion";
 import { Github, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 const ProjectCard = ({ project }: { project: Project }) => {
   const { title, description, tags, image, github, live } = project;
@@ -18,8 +19,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
       {/* Gambar dengan Overlay saat hover */}
       <div className="relative h-48 w-full overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent opacity-60 z-10" />
-        <img
+        <Image
           src={image}
+          width={500}
+          height={500}
           alt={`Thumbnail ${title}`}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
         />

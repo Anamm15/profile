@@ -1,10 +1,8 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-// Pastikan path import benar
 import AuroraBlobs from "./AuroraBlobs";
 
-// Komponen Ikon SVG
 const SkillIcon = ({
   children,
   name,
@@ -13,7 +11,6 @@ const SkillIcon = ({
   name: string;
 }) => (
   <motion.div
-    // Tambahkan backdrop-blur agar efek blob di belakangnya terlihat 'glassy'
     className="flex flex-col items-center justify-center gap-2 p-4 rounded-lg bg-neutral-800/50 backdrop-blur-sm border border-neutral-700/30 transition-colors duration-300 hover:bg-neutral-800 hover:border-cyan-500/30"
     variants={{
       hidden: { opacity: 0, scale: 0.8 },
@@ -89,7 +86,7 @@ const About = () => {
             className="space-y-4 text-lg text-neutral-300"
           >
             <p className="leading-relaxed text-justify">
-              Since starting my journey as a programmer, I've fallen in love
+              Since starting my journey as a programmer, I have fallen in love
               with the process of solving complex problems and building
               applications that benefit others. I believe that technology has
               the power to change the world for the better, and I want to be a
@@ -98,7 +95,7 @@ const About = () => {
             <p className="leading-relaxed text-justify">
               Outside of coding, I enjoy exploring new technologies,
               contributing to open-source projects, and reading books on product
-              design. I'm always looking for new challenges to grow as an
+              design. I am always looking for new challenges to grow as an
               engineer
             </p>
           </motion.div>
