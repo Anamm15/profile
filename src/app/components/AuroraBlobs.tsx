@@ -1,6 +1,5 @@
 import React from "react";
 
-// --- KONFIGURASI PALET WARNA (SAMA SEPERTI SEBELUMNYA) ---
 export const PALETTES = {
   aurora: ["bg-[#D6AE7B]", "bg-[#EACDA3]", "bg-indigo-900"],
   royal: ["bg-indigo-800", "bg-[#D6AE7B]", "bg-violet-900"],
@@ -51,10 +50,10 @@ export default function AuroraBlobs({
   }[intensity];
 
   const sizes = {
-    sm: "w-[320px] h-[320px]",
-    md: "w-[420px] h-[420px]",
-    lg: "w-[500px] h-[500px]",
-    xl: "w-[640px] h-[640px]",
+    sm: "w-[320px] h-[320px] scale-75 md:scale-100",
+    md: "w-[420px] h-[420px] scale-75 md:scale-100",
+    lg: "w-[500px] h-[500px] scale-75 md:scale-100",
+    xl: "w-[640px] h-[640px] scale-75 md:scale-100",
   };
 
   const blobSizes = {
@@ -64,12 +63,6 @@ export default function AuroraBlobs({
     xl: "w-96 h-96",
   };
 
-  /* =========================
-     PERBAIKAN POSISI (RESPONSIF)
-     Mobile: Gunakan 'left-0' / 'right-0' (Rata Tepi).
-     Desktop (md): Gunakan '-left-20' (Bleed Out).
-     Ini mencegah scrollbar horizontal di HP.
-  ========================= */
   const positions = {
     "top-left": "-top-10 left-0 md:-top-20 md:-left-20",
     "top-center": "-top-12 left-1/2 -translate-x-1/2 md:-top-24",
@@ -87,16 +80,13 @@ export default function AuroraBlobs({
   return (
     <div
       aria-hidden="true"
-      // TAMBAHAN: 'max-w-full overflow-hidden md:overflow-visible'
-      // Di Mobile: Kita potong (clip) blob jika melebar, agar tidak bikin scroll.
-      // Di Desktop: Kita biarkan (visible) agar efek glownya menyebar natural.
-      className={`absolute ${positions[variant]} ${visibility} pointer-events-none z-0 ${sizes[size]} max-w-full overflow-hidden md:overflow-visible`}
+      className={`absolute ${positions[variant]} ${visibility} pointer-events-none z-0 ${sizes[size]} max-w-full overflow-visible`}
     >
       <div className={`relative w-full h-full ${opacityClass}`}>
         {/* Blob 1 */}
         <div
           className={`absolute top-0 left-0 md:-left-4 ${blobSizes[size]} ${colors[0]} rounded-full 
-                      mix-blend-normal md:mix-blend-screen 
+                      mix-blend-screen 
                       filter blur-3xl md:blur-[80px] 
                       opacity-70 
                       animate-none md:animate-blob gpu-accelerated`}
@@ -105,7 +95,7 @@ export default function AuroraBlobs({
         {/* Blob 2 */}
         <div
           className={`absolute top-0 right-0 md:-right-4 ${blobSizes[size]} ${colors[1]} rounded-full 
-                      mix-blend-normal md:mix-blend-screen 
+                      mix-blend-screen 
                       filter blur-3xl md:blur-[80px] 
                       opacity-70 
                       animate-none md:animate-blob gpu-accelerated md:animation-delay-2000`}
@@ -114,7 +104,7 @@ export default function AuroraBlobs({
         {/* Blob 3 */}
         <div
           className={`absolute -bottom-8 left-1/4 ${blobSizes[size]} ${colors[2]} rounded-full 
-                      mix-blend-normal md:mix-blend-screen 
+                      mix-blend-screen 
                       filter blur-3xl md:blur-[80px] 
                       opacity-70 
                       animate-none md:animate-blob gpu-accelerated md:animation-delay-4000`}
