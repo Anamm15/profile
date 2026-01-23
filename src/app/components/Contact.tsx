@@ -11,13 +11,12 @@ const Contact = () => {
     message: "",
   });
 
-  // State untuk mengelola status pengiriman form
   const [submissionStatus, setSubmissionStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -27,17 +26,12 @@ const Contact = () => {
     e.preventDefault();
     setSubmissionStatus("sending");
 
-    // --- SIMULASI PENGIRIMAN FORM ---
-    // Di aplikasi nyata, ganti ini dengan logika API call (misalnya fetch ke backend atau layanan seperti Formspree)
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    // --------------------------------
 
-    // Contoh hasil: anggap saja berhasil
     console.log("Data formulir:", formData);
     setSubmissionStatus("success");
     setFormData({ name: "", email: "", message: "" });
 
-    // Reset status setelah beberapa detik
     setTimeout(() => setSubmissionStatus("idle"), 5000);
   };
 
@@ -60,8 +54,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative w-full py-10">
-      {/* Efek Latar Belakang Aurora */}
-      <div className="absolute bottom-0 left-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 translate-y-1/2 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-500/20 blur-3xl" />
+      <div className="absolute bottom-0 left-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 translate-y-1/2 rounded-full bg-gradient-to-br from-[#D6AE7B]/10 to-[#9F7928]/10 blur-3xl" />
 
       <motion.div
         className="container mx-auto grid max-w-5xl grid-cols-1 gap-12 px-4 md:grid-cols-2"
@@ -73,27 +66,32 @@ const Contact = () => {
         {/* Kolom Kiri: Informasi Kontak */}
         <motion.div variants={itemVariants}>
           <h2 className="text-3xl font-bold md:text-4xl">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            {/* HEADLINE: Gradasi Champagne -> Bronze */}
+            <span className="bg-gradient-to-r from-[#EACDA3] via-[#D6AE7B] to-[#9F7928] bg-clip-text text-transparent">
               Get in Touch
             </span>
           </h2>
-          <p className="mt-2 text-sm text-neutral-300">
+          <p className="mt-2 text-sm text-[#EACDA3] drop-shadow-[0_0_8px_rgba(214,174,123,0.5)]">
             My contact details and social links.
           </p>
-          <div className="mx-auto mt-4 h-1 w-24 rounded bg-gradient-to-r from-cyan-500 to-blue-600 md:mx-0"></div>
-          <p className="mt-6 text-lg text-neutral-300">
-            Have an interesting project or just want to say hello? I had love to
-            hear from you. Contact me via email, social media, or fill out the
-            form below.
+          {/* DIVIDER: Gold Solid */}
+          <div className="mx-auto mt-4 h-1 w-24 rounded bg-gradient-to-r from-[#C79D47] to-[#8F6B29] md:mx-0"></div>
+
+          <p className="mt-6 text-lg text-white">
+            Have an interesting project or just want to say hello? I&apos;d love
+            to hear from you. Contact me via email, social media, or fill out
+            the form below.
           </p>
+
           <div className="mt-12 space-y-6">
             <motion.a
               href="mailto:choirulanm.15@anda.com"
               className="group flex items-center gap-4"
               whileHover={{ x: 5 }}
             >
-              <Mail className="h-7 w-7 text-cyan-400" />
-              <span className="text-lg text-neutral-300 transition-colors group-hover:text-white">
+              {/* ICON: Gold Muted */}
+              <Mail className="h-7 w-7 text-[#D6AE7B] group-hover:text-[#EACDA3] transition-colors" />
+              <span className="text-lg text-white transition-colors group-hover:text-[#EACDA3]">
                 choirulanm.15@anda.com
               </span>
             </motion.a>
@@ -104,8 +102,8 @@ const Contact = () => {
               className="group flex items-center gap-4"
               whileHover={{ x: 5 }}
             >
-              <Linkedin className="h-7 w-7 text-cyan-400" />
-              <span className="text-lg text-neutral-300 transition-colors group-hover:text-white">
+              <Linkedin className="h-7 w-7 text-[#D6AE7B] group-hover:text-[#EACDA3] transition-colors" />
+              <span className="text-lg text-white transition-colors group-hover:text-[#EACDA3]">
                 LinkedIn Profile
               </span>
             </motion.a>
@@ -116,15 +114,14 @@ const Contact = () => {
               className="group flex items-center gap-4"
               whileHover={{ x: 5 }}
             >
-              <Github className="h-7 w-7 text-cyan-400" />
-              <span className="text-lg text-neutral-300 transition-colors group-hover:text-white">
+              <Github className="h-7 w-7 text-[#D6AE7B] group-hover:text-[#EACDA3] transition-colors" />
+              <span className="text-lg text-white transition-colors group-hover:text-[#EACDA3]">
                 GitHub Profile
               </span>
             </motion.a>
           </div>
         </motion.div>
 
-        {/* Kolom Kanan: Formulir Kontak */}
         <motion.form
           onSubmit={handleSubmit}
           variants={itemVariants}
@@ -133,7 +130,7 @@ const Contact = () => {
           <div>
             <label
               htmlFor="name"
-              className="mb-2 block text-sm font-medium text-neutral-300"
+              className="mb-2 block text-sm font-medium text-white"
             >
               Name
             </label>
@@ -144,13 +141,13 @@ const Contact = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full rounded-md border border-neutral-700 bg-neutral-800/50 p-3 text-white outline-none transition-all duration-300 focus:ring-2 focus:ring-cyan-500"
+              className="w-full rounded-md border border-neutral-700 bg-[#111625]/50 p-3 text-white outline-none transition-all duration-300 focus:border-[#D6AE7B] focus:ring-1 focus:ring-[#D6AE7B]"
             />
           </div>
           <div>
             <label
               htmlFor="email"
-              className="mb-2 block text-sm font-medium text-neutral-300"
+              className="mb-2 block text-sm font-medium text-white"
             >
               Email
             </label>
@@ -161,13 +158,13 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full rounded-md border border-neutral-700 bg-neutral-800/50 p-3 text-white outline-none transition-all duration-300 focus:ring-2 focus:ring-cyan-500"
+              className="w-full rounded-md border border-neutral-700 bg-[#111625]/50 p-3 text-white outline-none transition-all duration-300 focus:border-[#D6AE7B] focus:ring-1 focus:ring-[#D6AE7B]"
             />
           </div>
           <div>
             <label
               htmlFor="message"
-              className="mb-2 block text-sm font-medium text-neutral-300"
+              className="mb-2 block text-sm font-medium text-white"
             >
               Message
             </label>
@@ -178,14 +175,16 @@ const Contact = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full resize-none rounded-md border border-neutral-700 bg-neutral-800/50 p-3 text-white outline-none transition-all duration-300 focus:ring-2 focus:ring-cyan-500"
+              className="w-full resize-none rounded-md border border-neutral-700 bg-[#111625]/50 p-3 text-white outline-none transition-all duration-300 focus:border-[#D6AE7B] focus:ring-1 focus:ring-[#D6AE7B]"
             ></textarea>
           </div>
+
           <motion.button
             type="submit"
             disabled={submissionStatus === "sending"}
-            className="group flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white transition-all duration-300 disabled:opacity-50"
-            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            // BUTTON: Gradient Gold/Bronze (Sama seperti Hero)
+            className="group flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#C79D47] to-[#8F6B29] px-6 py-3 font-semibold text-white shadow-lg shadow-[#8F6B29]/20 transition-all duration-300 hover:shadow-[#8F6B29]/40 hover:brightness-110 disabled:opacity-50"
+            whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
             whileTap={{ scale: 0.95 }}
           >
             {submissionStatus === "sending"
@@ -199,6 +198,7 @@ const Contact = () => {
               }`}
             />
           </motion.button>
+
           {submissionStatus === "success" && (
             <p className="text-center text-green-400">
               Your message has sent. Thank You!

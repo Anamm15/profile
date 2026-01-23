@@ -1,25 +1,32 @@
 import React from "react";
 
+// --- KONFIGURASI PALET WARNA BARU (DARK GOLD / LUXURY THEME) ---
 export const PALETTES = {
-  // --- DEFAULT ---
-  tealGlow: ["bg-cyan-400", "bg-teal-300", "bg-emerald-400"],
-  aurora: ["bg-violet-500", "bg-cyan-400", "bg-fuchsia-400"],
+  // 1. DEFAULT (Sekarang menjadi tema Emas/Champagne)
+  // Cocok untuk Hero Section
+  aurora: ["bg-[#D6AE7B]", "bg-[#EACDA3]", "bg-indigo-900"],
 
-  // --- HOT / ENERGETIC ---
-  magma: ["bg-rose-500", "bg-orange-500", "bg-yellow-400"],
-  sunset: ["bg-orange-400", "bg-rose-400", "bg-yellow-300"],
+  // 2. LUXURY / ROYAL (Ungu Gelap dengan sentuhan Emas)
+  // Cocok untuk About Section
+  royal: ["bg-indigo-800", "bg-[#D6AE7B]", "bg-violet-900"],
 
-  // --- COOL / CALM ---
-  ocean: ["bg-sky-500", "bg-blue-600", "bg-cyan-300"],
-  mint: ["bg-emerald-300", "bg-teal-400", "bg-lime-300"],
+  // 3. WARM / BRONZE (Tembaga & Emas Tua)
+  // Cocok untuk Projects / Experience
+  sunset: ["bg-[#9F7928]", "bg-orange-900", "bg-[#C79D47]"],
+  magma: ["bg-rose-900", "bg-orange-800", "bg-[#8F6B29]"],
 
-  // --- MYSTERIOUS / MAGIC ---
-  nebula: ["bg-indigo-500", "bg-purple-500", "bg-pink-500"],
-  vaporwave: ["bg-fuchsia-500", "bg-cyan-400", "bg-pink-400"],
+  // 4. COOL / DEEP SEA (Biru Laut Dalam, bukan Cyan terang)
+  // Cocok untuk Skills (sebagai kontras dingin)
+  ocean: ["bg-sky-900", "bg-blue-900", "bg-[#111625]"],
+  tealGlow: ["bg-teal-900", "bg-cyan-900", "bg-emerald-900"],
 
-  // --- ELEGANT / LUXURY ---
-  royal: ["bg-indigo-800", "bg-violet-600", "bg-blue-700"],
-  gold: ["bg-yellow-500", "bg-amber-400", "bg-orange-300"],
+  // 5. MYSTERIOUS (Aksen Pink/Ungu yang redup/mahal)
+  nebula: ["bg-indigo-900", "bg-fuchsia-900", "bg-[#4c1d95]"], // violet-900
+  vaporwave: ["bg-rose-900", "bg-indigo-900", "bg-[#D6AE7B]"], // Rose Gold
+
+  // 6. KHUSUS TEXTURE (Sangat redup, hampir menyatu background)
+  mint: ["bg-emerald-900", "bg-[#0f172a]", "bg-teal-950"],
+  gold: ["bg-[#EACDA3]", "bg-[#C79D47]", "bg-[#8F6B29]"], // Full Gold Spectrum
 };
 
 type PaletteKey = keyof typeof PALETTES;
@@ -53,18 +60,19 @@ export default function AuroraBlobs({
   const colors = PALETTES[palette] || PALETTES.aurora;
 
   /* =========================
-     Intensity (opacity)
-  ========================= */
+      Intensity (opacity)
+      Karena background sangat gelap (#0B0F19), opacity bisa sedikit dinaikkan
+      agar warna 'Gold' terlihat berpendar (glowing).
+   ========================= */
   const opacityClass = {
-    subtle: "opacity-20",
-    medium: "opacity-35",
-    strong: "opacity-50",
+    subtle: "opacity-30", // Sedikit lebih terlihat dari sebelumnya (20)
+    medium: "opacity-45", // Naik dari 35
+    strong: "opacity-60", // Naik dari 50
   }[intensity];
 
   /* =========================
-     Size mapping
-     lg === ukuran lama (500px)
-  ========================= */
+      Size mapping
+   ========================= */
   const sizes = {
     sm: "w-[320px] h-[320px]",
     md: "w-[420px] h-[420px]",
@@ -80,8 +88,8 @@ export default function AuroraBlobs({
   };
 
   /* =========================
-     Position variants
-  ========================= */
+      Position variants
+   ========================= */
   const positions = {
     "top-left": "-top-20 -left-20",
     "top-center": "-top-24 left-1/2 -translate-x-1/2",
@@ -104,17 +112,18 @@ export default function AuroraBlobs({
       <div className={`relative w-full h-full ${opacityClass}`}>
         {/* Blob 1 */}
         <div
-          className={`absolute top-0 -left-4 ${blobSizes[size]} ${colors[0]} rounded-full mix-blend-screen filter blur-3xl opacity-70 animate-blob`}
+          // Mix-blend-screen sangat bagus di background gelap untuk efek 'cahaya'
+          className={`absolute top-0 -left-4 ${blobSizes[size]} ${colors[0]} rounded-full mix-blend-screen filter blur-[80px] opacity-70 animate-blob`}
         />
 
         {/* Blob 2 */}
         <div
-          className={`absolute top-0 -right-4 ${blobSizes[size]} ${colors[1]} rounded-full mix-blend-screen filter blur-3xl opacity-70 animate-blob animation-delay-2000`}
+          className={`absolute top-0 -right-4 ${blobSizes[size]} ${colors[1]} rounded-full mix-blend-screen filter blur-[80px] opacity-70 animate-blob animation-delay-2000`}
         />
 
         {/* Blob 3 */}
         <div
-          className={`absolute -bottom-8 left-1/4 ${blobSizes[size]} ${colors[2]} rounded-full mix-blend-screen filter blur-3xl opacity-70 animate-blob animation-delay-4000`}
+          className={`absolute -bottom-8 left-1/4 ${blobSizes[size]} ${colors[2]} rounded-full mix-blend-screen filter blur-[80px] opacity-70 animate-blob animation-delay-4000`}
         />
       </div>
     </div>

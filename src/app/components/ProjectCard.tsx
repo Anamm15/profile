@@ -14,11 +14,16 @@ const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <motion.div
       variants={cardVariants}
-      className="group relative flex flex-col overflow-hidden rounded-xl bg-neutral-900/50 border-2  backdrop-blur-md transition-all duration-300 hover:-translate-y-2 border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/20"
+      // CONTAINER:
+      // bg-[#111625]/50 (Navy Gelap Transparan)
+      // border-[#D6AE7B]/10 (Emas Sangat Tipis)
+      // Hover Shadow: Glow Emas Redup
+      className="group relative flex flex-col overflow-hidden rounded-xl bg-[#111625]/50 border border-[#D6AE7B]/10 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-[#D6AE7B]/30 hover:shadow-2xl hover:shadow-[#D6AE7B]/10"
     >
       {/* Gambar dengan Overlay saat hover */}
       <div className="relative h-48 w-full overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent opacity-60 z-10" />
+        {/* OVERLAY: Gradient blending ke warna background utama (#0B0F19) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent opacity-60 z-10" />
         <Image
           src={image}
           width={500}
@@ -29,7 +34,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
       </div>
 
       <div className="flex flex-col flex-grow p-6 z-20">
-        <h3 className="mb-2 text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+        {/* TITLE: Hover berubah jadi Champagne (#EACDA3) */}
+        <h3 className="mb-2 text-xl font-bold text-white group-hover:text-[#EACDA3] transition-colors">
           {title}
         </h3>
 
@@ -42,20 +48,19 @@ const ProjectCard = ({ project }: { project: Project }) => {
           {tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-cyan-950/30 border border-cyan-500/20 px-3 py-1 text-xs font-medium text-cyan-300"
+              className="rounded-full bg-[#D6AE7B]/10 border border-[#D6AE7B]/20 px-3 py-1 text-xs font-medium text-[#D6AE7B]"
             >
               {tag}
             </span>
           ))}
         </div>
 
-        {/* Links */}
-        <div className="flex items-center gap-4 mt-auto pt-4 border-t border-white/5">
+        <div className="flex items-center gap-4 mt-auto pt-4 border-t border-[#D6AE7B]/10">
           <a
             href={github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-neutral-400 transition-colors hover:text-white"
+            className="flex items-center gap-2 text-sm text-white transition-colors hover:text-[#EACDA3]"
           >
             <Github size={18} /> Code
           </a>
@@ -63,7 +68,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             href={live}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-neutral-400 transition-colors hover:text-cyan-400"
+            className="flex items-center gap-2 text-sm text-white transition-colors hover:text-[#EACDA3]"
           >
             <ArrowUpRight size={18} /> Demo
           </a>

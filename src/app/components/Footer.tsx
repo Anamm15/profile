@@ -14,9 +14,9 @@ const SocialIcon = ({ href, children }: SocialIconProps) => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label="social link"
-    className="p-2 rounded-full bg-neutral-800 text-neutral-400
+    className="p-2 rounded-full bg-[#111625] border border-[#D6AE7B]/10 text-white
                transition-colors duration-300
-               hover:bg-cyan-500/20 hover:text-cyan-400"
+               hover:bg-[#D6AE7B]/10 hover:border-[#D6AE7B]/50 hover:text-[#EACDA3] hover:shadow-[0_0_15px_-5px_rgba(214,174,123,0.5)]"
     whileHover={{ scale: 1.1, y: -2 }}
     whileTap={{ scale: 0.9 }}
   >
@@ -27,25 +27,27 @@ const SocialIcon = ({ href, children }: SocialIconProps) => (
 const Footer = () => {
   const socials = [
     {
-      href: "https://github.com/username",
+      href: "https://github.com/Anamm15",
       icon: <Github size={20} />,
       label: "GitHub",
     },
     {
-      href: "https://linkedin.com/in/username",
+      href: "https://www.linkedin.com/in/choirulanm15/",
       icon: <Linkedin size={20} />,
       label: "LinkedIn",
     },
     {
-      href: "https://twitter.com/username",
+      href: "https://twitter.com/",
       icon: <Twitter size={20} />,
       label: "Twitter",
     },
   ];
 
   return (
-    <footer className="w-full bg-neutral-900 border-t border-neutral-800 py-8">
-      <div className="container mx-auto px-4 text-center text-neutral-400">
+    <footer className="relative w-full bg-[#0B0F19] py-8 border-t border-[#D6AE7B]/10 overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#D6AE7B]/50 to-transparent"></div>
+
+      <div className="container mx-auto px-4 text-center text-white">
         <div className="flex justify-center gap-4 mb-4">
           {socials.map((social) => (
             <SocialIcon key={social.label} href={social.href}>
@@ -55,12 +57,14 @@ const Footer = () => {
         </div>
 
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} Choirul Anam. All rights reserved.
+          &copy; {new Date().getFullYear()}{" "}
+          <span className="text-[#EACDA3]">Choirul Anam</span>. All rights
+          reserved.
         </p>
 
-        <p className="text-xs mt-2">
-          Made with <span className="text-cyan-400">Next.js</span> &{" "}
-          <span className="text-cyan-400">Tailwind CSS</span>.
+        <p className="text-xs mt-2 text-white">
+          Made with <span className="text-[#D6AE7B] font-medium">Next.js</span>{" "}
+          & <span className="text-[#D6AE7B] font-medium">Tailwind CSS</span>.
         </p>
       </div>
     </footer>

@@ -17,9 +17,9 @@ import {
   SiPostgresql,
   SiMongodb,
 } from "react-icons/si";
-// Pastikan path import sesuai
 import AuroraBlobs from "./AuroraBlobs";
 
+// Data skills tetap sama
 const skillsData = [
   { name: "JavaScript (ES6+)", icon: <SiJavascript size={40} /> },
   { name: "TypeScript", icon: <SiTypescript size={40} /> },
@@ -55,14 +55,14 @@ const Skills = () => {
     <section id="skills" className="relative py-20 px-4">
       <AuroraBlobs
         variant="top-left"
-        palette="mint"
+        palette="royal"
         intensity="subtle"
         hideOnMobile={false}
         size="sm"
       />
       <AuroraBlobs
         variant="bottom-right"
-        palette="tealGlow"
+        palette="royal"
         intensity="subtle"
         hideOnMobile={false}
         size="md"
@@ -89,14 +89,15 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-bold md:text-4xl">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            {/* HEADLINE: Gradasi Champagne -> Bronze */}
+            <span className="bg-gradient-to-r from-[#EACDA3] via-[#D6AE7B] to-[#9F7928] bg-clip-text text-transparent">
               Skills & Technology
             </span>
           </h2>
-          <p className="mt-2 text-sm text-neutral-300">
+          <p className="mt-2 text-sm text-[#EACDA3] drop-shadow-[0_0_8px_rgba(214,174,123,0.5)]">
             Tools & libraries I use regularly.
           </p>
-          <div className="mt-4 h-1 w-24 rounded bg-gradient-to-r from-cyan-500 to-blue-600" />
+          <div className="mt-4 h-1 w-24 rounded bg-gradient-to-r from-[#C79D47] to-[#8F6B29]" />
         </motion.div>
 
         <motion.div
@@ -115,19 +116,19 @@ const Skills = () => {
               whileHover={{ y: -8, scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 220, damping: 18 }}
-              className="bg-neutral-800/50 backdrop-blur-md border border-white/5 p-6 rounded-lg flex flex-col items-center justify-center gap-3
-                         text-neutral-100 shadow-sm hover:shadow-cyan-500/20 hover:border-cyan-500/30 transition-all duration-300 group"
+              className="bg-[#111625]/50 backdrop-blur-md border border-[#D6AE7B]/10 p-6 rounded-lg flex flex-col items-center justify-center gap-3
+                         text-slate-200 shadow-sm hover:shadow-[0_0_15px_-5px_rgba(214,174,123,0.3)] hover:border-[#D6AE7B]/40 transition-all duration-300 group"
             >
               <motion.div
                 initial={{ rotate: 0 }}
                 whileHover={{ rotate: 10, scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="text-cyan-400 group-hover:text-cyan-300 drop-shadow-lg"
+                className="text-[#D6AE7B] group-hover:text-[#EACDA3] drop-shadow-lg transition-colors duration-300"
               >
                 {skill.icon}
               </motion.div>
 
-              <p className="font-medium text-neutral-200 text-center text-sm group-hover:text-white">
+              <p className="font-medium text-[#EACDA3]/80 text-center text-sm group-hover:text-[#EACDA3]">
                 {skill.name}
               </p>
             </motion.div>

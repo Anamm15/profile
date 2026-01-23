@@ -30,7 +30,7 @@ const Navbar = () => {
 
   const handleLinkClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    name: string
+    name: string,
   ) => {
     e.preventDefault();
     setActiveTab(name);
@@ -48,11 +48,15 @@ const Navbar = () => {
   return (
     <div className="fixed top-6 inset-x-0 mx-auto w-fit z-50 px-4 pointer-events-none">
       <motion.nav
-        layout // Magic Prop: Ini yang bikin lebar navbar memanjang/memendek otomatis!
+        layout
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
-        className="pointer-events-auto flex items-center gap-2 px-2 py-2 rounded-full border border-white/10 bg-neutral-900/80 backdrop-blur-xl shadow-2xl shadow-black/50"
+        // CONTAINER STYLE:
+        // bg-[#111625]/80 (Navy Glass)
+        // border-[#D6AE7B]/20 (Gold Border Tipis)
+        // shadow-black/50 (Bayangan dalam agar kontras)
+        className="pointer-events-auto flex items-center gap-2 px-2 py-2 rounded-full border border-[#D6AE7B]/20 bg-[#111625]/80 backdrop-blur-xl shadow-2xl shadow-black/50"
       >
         {navLinks.map((link) => {
           const isActive = activeTab === link.name;
@@ -67,31 +71,26 @@ const Navbar = () => {
               onMouseLeave={() => setHoveredTab(null)}
               className="relative flex items-center justify-center"
             >
-              {/* Background Bubble (Active State) */}
               {isActive && (
                 <motion.div
                   layoutId="active-pill"
-                  className="absolute inset-0 bg-neutral-700/60 rounded-full"
+                  className="absolute inset-0 bg-[#D6AE7B]/15 border border-[#D6AE7B]/20 rounded-full"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               )}
 
               {/* Item Menu Content */}
               <motion.div
-                layout // Layout agar item bergeser mulus saat sebelahnya melebar
+                layout
                 className={`relative flex items-center justify-center px-3 py-2.5 rounded-full transition-all duration-300 z-10 ${
                   isActive
-                    ? "text-cyan-400"
-                    : "text-neutral-400 hover:text-white"
+                    ? "text-[#EACDA3] drop-shadow-[0_0_8px_rgba(214,174,123,0.5)]"
+                    : "text-white hover:text-[#EACDA3]"
                 }`}
               >
-                {/* ICON */}
                 <span className="relative z-10">{link.icon}</span>
 
-                {/* LABEL TEKS (Expand Animation) */}
                 <AnimatePresence>
-                  {/* Teks muncul HANYA jika: Tidak Mobile DAN (Sedang di-Hover ATAU Sedang Aktif) */}
-                  {/* Jika ingin hanya saat Hover saja, hapus bagian '|| isActive' */}
                   {!isMobile && (isHovered || isActive) && (
                     <motion.span
                       initial={{ width: 0, opacity: 0, marginLeft: 0 }}

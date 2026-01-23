@@ -19,7 +19,7 @@ const projectsData: Project[] = [
     description:
       "A modern e commerce platform built with Next.js, Redux Toolkit, and Stripe payment integration.",
     tags: ["Next.js", "React", "Tailwind CSS", "Stripe", "Redux"],
-    image: "https://placehold.co/600x400/171717/38bdf8?text=Project+1",
+    image: "https://placehold.co/600x400/0B0F19/D6AE7B?text=E-Commerce",
     github: "#",
     live: "#",
   },
@@ -28,7 +28,7 @@ const projectsData: Project[] = [
     description:
       "A dashboard for user data visualization with interactive charts using Chart.js and authentication with NextAuth.",
     tags: ["React", "Chart.js", "NextAuth", "TypeScript"],
-    image: "https://placehold.co/600x400/171717/38bdf8?text=Project+2",
+    image: "https://placehold.co/600x400/0B0F19/D6AE7B?text=Dashboard",
     github: "#",
     live: "#",
   },
@@ -37,7 +37,7 @@ const projectsData: Project[] = [
     description:
       "A landing page for a software as a service product with a focus on scroll animations and clean design.",
     tags: ["HTML5", "CSS3", "JavaScript", "Framer Motion"],
-    image: "https://placehold.co/600x400/171717/38bdf8?text=Project+3",
+    image: "https://placehold.co/600x400/0B0F19/D6AE7B?text=Landing+Page",
     github: "#",
     live: "#",
   },
@@ -56,14 +56,14 @@ const Projects = () => {
     <section id="projects" className="relative w-full py-20">
       <AuroraBlobs
         variant="bottom-left"
-        palette="tealGlow"
-        intensity="medium"
+        palette="sunset"
+        intensity="subtle"
         hideOnMobile={false}
       />
       <AuroraBlobs
         variant="top-right"
-        palette="nebula"
-        intensity="medium"
+        palette="vaporwave"
+        intensity="subtle"
         hideOnMobile={false}
       />
 
@@ -75,14 +75,14 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-bold md:text-4xl text-left">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#EACDA3] via-[#D6AE7B] to-[#9F7928] bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
-          <p className="mt-2 text-sm text-neutral-300">
+          <p className="mt-2 text-sm text-[#EACDA3] drop-shadow-[0_0_8px_rgba(214,174,123,0.5)]">
             A collection of personal projects I&apos;ve worked on.
           </p>
-          <div className="mt-4 h-1 w-24 rounded bg-gradient-to-r from-cyan-500 to-blue-600"></div>
+          <div className="mt-4 h-1 w-24 rounded bg-gradient-to-r from-[#C79D47] to-[#8F6B29]"></div>
         </motion.div>
 
         <motion.div

@@ -54,14 +54,14 @@ const Experience = () => {
     <section id="experience" className="relative w-full py-20">
       <AuroraBlobs
         variant="center"
-        palette="ocean"
-        intensity="medium"
+        palette="sunset"
+        intensity="subtle"
         hideOnMobile={false}
       />
       <AuroraBlobs
         variant="center"
-        palette="mint"
-        intensity="medium"
+        palette="gold"
+        intensity="subtle"
         hideOnMobile={false}
         size="md"
       />
@@ -75,14 +75,15 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-bold md:text-4xl">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            {/* HEADLINE: Gradasi Champagne -> Bronze */}
+            <span className="bg-gradient-to-r from-[#EACDA3] via-[#D6AE7B] to-[#9F7928] bg-clip-text text-transparent">
               Experience
             </span>
           </h2>
-          <p className="mt-2 text-sm text-neutral-300">
+          <p className="mt-2 text-sm text-[#EACDA3] drop-shadow-[0_0_8px_rgba(214,174,123,0.5)]">
             A little bit about my work experience.
           </p>
-          <div className="mt-4 h-1 w-24 rounded bg-gradient-to-r from-cyan-500 to-blue-600 "></div>
+          <div className="mt-4 h-1 w-24 rounded bg-gradient-to-r from-[#C79D47] to-[#8F6B29]"></div>
         </motion.div>
 
         <motion.div
@@ -98,36 +99,37 @@ const Experience = () => {
               className="relative w-full h-full"
               variants={itemVariants}
             >
-              <div className="group relative h-full rounded-xl border border-white/5 bg-neutral-900/50 p-8 backdrop-blur-md transition-all duration-300 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/20 hover:-translate-y-1">
-                {/* Header Card */}
+              <div className="group relative h-full rounded-xl border border-[#D6AE7B]/10 bg-[#111625]/50 p-8 backdrop-blur-md transition-all duration-300 hover:border-[#D6AE7B]/30 hover:shadow-2xl hover:shadow-[#D6AE7B]/10 hover:-translate-y-1">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                  <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#EACDA3] transition-colors">
                     {exp.role}
                   </h3>
-                  <p className="text-sm font-medium text-cyan-500 bg-cyan-950/30 px-3 py-1 rounded-full w-fit mt-2 sm:mt-0 border border-cyan-500/20">
+                  <p className="text-sm font-medium text-[#D6AE7B] bg-[#D6AE7B]/10 px-3 py-1 rounded-full w-fit mt-2 sm:mt-0 border border-[#D6AE7B]/20">
                     {exp.duration}
                   </p>
                 </div>
 
-                <p className="mb-6 text-lg font-medium text-neutral-300 border-b border-white/5 pb-4">
+                <p className="mb-6 text-lg font-medium text-white border-b border-[#D6AE7B]/10 pb-4">
                   {exp.company}
                 </p>
 
                 {/* List Description */}
                 <ul className="list-disc space-y-3 pl-4 text-sm text-white mb-6 transition-colors">
                   {exp.description.map((desc, i) => (
-                    <li key={i} className="leading-relaxed pl-1">
+                    <li
+                      key={i}
+                      className="leading-relaxed pl-1 marker:text-[#D6AE7B]"
+                    >
                       {desc}
                     </li>
                   ))}
                 </ul>
 
-                {/* Tags */}
                 <div className="mt-auto flex flex-wrap gap-2 pt-4">
                   {exp.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-neutral-800 border border-white/5 px-3 py-1 text-xs font-medium text-neutral-300 transition-colors group-hover:border-cyan-500/30 group-hover:text-cyan-400"
+                      className="rounded-full bg-[#0B0F19] border border-[#D6AE7B]/10 px-3 py-1 text-xs font-medium text-white transition-colors group-hover:border-[#D6AE7B]/30 group-hover:text-[#D6AE7B]"
                     >
                       {tag}
                     </span>

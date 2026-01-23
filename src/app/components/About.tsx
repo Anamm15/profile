@@ -11,7 +11,7 @@ const SkillIcon = ({
   name: string;
 }) => (
   <motion.div
-    className="flex flex-col items-center justify-center gap-2 p-4 rounded-lg bg-neutral-800/50 backdrop-blur-sm border border-neutral-700/30 transition-colors duration-300 hover:bg-neutral-800 hover:border-cyan-500/30"
+    className="flex flex-col items-center justify-center gap-2 p-4 rounded-lg bg-[#111625]/50 backdrop-blur-sm border border-[#D6AE7B]/10 transition-colors duration-300 hover:bg-[#D6AE7B]/5 hover:border-[#D6AE7B]/40 hover:shadow-[0_0_15px_-5px_rgba(214,174,123,0.3)]"
     variants={{
       hidden: { opacity: 0, scale: 0.8 },
       visible: { opacity: 1, scale: 1 },
@@ -19,7 +19,7 @@ const SkillIcon = ({
     whileHover={{ scale: 1.05 }}
   >
     {children}
-    <p className="text-sm font-medium text-neutral-300">{name}</p>
+    <p className="text-sm font-medium text-[#EACDA3]">{name}</p>
   </motion.div>
 );
 
@@ -48,8 +48,8 @@ const About = () => {
     <section id="about" className="relative w-full py-20">
       <AuroraBlobs
         variant="top-right"
-        palette="aurora"
-        intensity="medium"
+        palette="royal"
+        intensity="subtle"
         hideOnMobile={false}
       />
       <AuroraBlobs
@@ -68,22 +68,20 @@ const About = () => {
       >
         <motion.div className="text-left" variants={itemVariants}>
           <h2 className="text-3xl font-bold md:text-4xl">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#EACDA3] via-[#D6AE7B] to-[#9F7928] bg-clip-text text-transparent">
               About Me
             </span>
           </h2>
-          <p className="mt-2 text-sm text-neutral-300">
+          <p className="mt-2 text-sm text-[#EACDA3] drop-shadow-[0_0_8px_rgba(214,174,123,0.5)]">
             A little bit about myself.
           </p>
-          <div className="mt-4 h-1 w-24 rounded bg-gradient-to-r from-cyan-500 to-blue-600"></div>
+          <div className="mt-4 h-1 w-24 rounded bg-gradient-to-r from-[#C79D47] to-[#8F6B29]"></div>
         </motion.div>
 
-        {/* Grid Dua Kolom */}
         <div className="mt-8 grid grid-cols-1 items-start gap-12 md:grid-cols-2">
-          {/* Kolom Kiri: Narasi */}
           <motion.div
             variants={itemVariants}
-            className="space-y-4 text-lg text-neutral-300"
+            className="space-y-4 text-lg text-white"
           >
             <p className="leading-relaxed text-justify">
               Since starting my journey as a programmer, I have fallen in love
@@ -96,28 +94,26 @@ const About = () => {
               Outside of coding, I enjoy exploring new technologies,
               contributing to open-source projects, and reading books on product
               design. I am always looking for new challenges to grow as an
-              engineer
+              engineer.
             </p>
           </motion.div>
 
-          {/* Kolom Kanan: Keahlian */}
           <motion.div variants={itemVariants} className="relative">
-            <h3 className="mb-4 text-xl font-semibold text-white">
-              Keahlian Utama
+            <h3 className="mb-4 text-xl font-semibold text-[#EACDA3] drop-shadow-[0_0_8px_rgba(214,174,123,0.5)]">
+              Main Skills
             </h3>
             <motion.div
               className="grid grid-cols-3 gap-4"
               variants={containerVariants}
             >
               <SkillIcon name="React">
-                {/* SVG React */}
                 <svg
                   width="40"
                   height="40"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="text-cyan-400"
+                  className="text-[#D6AE7B]"
                 >
                   <path
                     d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
@@ -148,7 +144,7 @@ const About = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="text-cyan-400"
+                  className="text-[#D6AE7B]"
                 >
                   <path
                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.05 15.3l-3.3-6.22V17H6V7h1.65v5.88l3.18-5.88H12.5l-3.6 6.58 3.75 3.72h-1.7zm6.75-1.12c-.52 0-.96-.4-1.04-.92H14V7h5v2.5h-2.2v1.4h1.7v2.5h-1.7v1.48c.08.52.52.92 1.04.92.52 0 .96-.4 1.04-.92H20c-.08 1.6-1.48 2.82-3.3 2.82z"
@@ -157,14 +153,13 @@ const About = () => {
                 </svg>
               </SkillIcon>
               <SkillIcon name="TypeScript">
-                {/* SVG TS */}
                 <svg
                   width="40"
                   height="40"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="text-cyan-400"
+                  className="text-[#D6AE7B]"
                 >
                   <path
                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
@@ -177,14 +172,13 @@ const About = () => {
                 </svg>
               </SkillIcon>
               <SkillIcon name="Tailwind">
-                {/* SVG Tailwind */}
                 <svg
                   width="40"
                   height="40"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="text-cyan-400"
+                  className="text-[#D6AE7B]"
                 >
                   <path
                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
@@ -197,14 +191,13 @@ const About = () => {
                 </svg>
               </SkillIcon>
               <SkillIcon name="Figma">
-                {/* SVG Figma */}
                 <svg
                   width="40"
                   height="40"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="text-cyan-400"
+                  className="text-[#D6AE7B]"
                 >
                   <path
                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
@@ -221,14 +214,13 @@ const About = () => {
                 </svg>
               </SkillIcon>
               <SkillIcon name="Git">
-                {/* SVG Git */}
                 <svg
                   width="40"
                   height="40"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="text-cyan-400"
+                  className="text-[#D6AE7B]"
                 >
                   <path
                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
