@@ -45,7 +45,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="relative w-full py-20">
+    <section id="about" className="relative w-full py-6 md:py-20">
       <AuroraBlobs
         variant="top-right"
         palette="royal"

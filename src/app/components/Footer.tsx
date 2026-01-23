@@ -44,7 +44,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative w-full bg-[#0B0F19] py-8 border-t border-[#D6AE7B]/10 overflow-hidden">
+    <footer className="relative w-full bg-[#0B0F19] py-8 border-t border-[#D6AE7B]/10 overflow-hidden h-max">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#D6AE7B]/50 to-transparent"></div>
 
       <div className="container mx-auto px-4 text-center text-white">

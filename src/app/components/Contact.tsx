@@ -53,8 +53,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative w-full py-10">
-      <div className="absolute bottom-0 left-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 translate-y-1/2 rounded-full bg-gradient-to-br from-[#D6AE7B]/10 to-[#9F7928]/10 blur-3xl" />
+    <section id="contact" className="relative w-full py-6 md:py-10">
+      <div className="absolute bottom-0 left-1/2 -z-10 h-[300px] w-[300px] -translate-x-1/2 translate-y-1/2 rounded-full bg-gradient-to-br from-[#D6AE7B]/10 to-[#9F7928]/10 blur-3xl" />
 
       <motion.div
         className="container mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 md:grid-cols-2"

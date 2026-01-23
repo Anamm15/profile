@@ -53,7 +53,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="relative w-full py-20">
+    <section id="projects" className="relative w-full py-6 md:py-20">
       <AuroraBlobs
         variant="bottom-left"
         palette="sunset"

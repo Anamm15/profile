@@ -51,7 +51,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="relative w-full py-20">
+    <section id="experience" className="relative w-full py-6 md:py-20">
       <AuroraBlobs
         variant="center"
         palette="sunset"

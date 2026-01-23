@@ -52,7 +52,7 @@ const itemVariants = {
 
 const Skills = () => {
   return (
-    <section id="skills" className="relative py-20">
+    <section id="skills" className="relative py-6 md:py-20">
       <AuroraBlobs
         variant="top-left"
         palette="royal"

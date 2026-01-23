@@ -1,32 +1,17 @@
 import React from "react";
 
-// --- KONFIGURASI PALET WARNA BARU (DARK GOLD / LUXURY THEME) ---
+// --- KONFIGURASI PALET WARNA (SAMA SEPERTI SEBELUMNYA) ---
 export const PALETTES = {
-  // 1. DEFAULT (Sekarang menjadi tema Emas/Champagne)
-  // Cocok untuk Hero Section
   aurora: ["bg-[#D6AE7B]", "bg-[#EACDA3]", "bg-indigo-900"],
-
-  // 2. LUXURY / ROYAL (Ungu Gelap dengan sentuhan Emas)
-  // Cocok untuk About Section
   royal: ["bg-indigo-800", "bg-[#D6AE7B]", "bg-violet-900"],
-
-  // 3. WARM / BRONZE (Tembaga & Emas Tua)
-  // Cocok untuk Projects / Experience
   sunset: ["bg-[#9F7928]", "bg-orange-900", "bg-[#C79D47]"],
   magma: ["bg-rose-900", "bg-orange-800", "bg-[#8F6B29]"],
-
-  // 4. COOL / DEEP SEA (Biru Laut Dalam, bukan Cyan terang)
-  // Cocok untuk Skills (sebagai kontras dingin)
   ocean: ["bg-sky-900", "bg-blue-900", "bg-[#111625]"],
   tealGlow: ["bg-teal-900", "bg-cyan-900", "bg-emerald-900"],
-
-  // 5. MYSTERIOUS (Aksen Pink/Ungu yang redup/mahal)
-  nebula: ["bg-indigo-900", "bg-fuchsia-900", "bg-[#4c1d95]"], // violet-900
-  vaporwave: ["bg-rose-900", "bg-indigo-900", "bg-[#D6AE7B]"], // Rose Gold
-
-  // 6. KHUSUS TEXTURE (Sangat redup, hampir menyatu background)
+  nebula: ["bg-indigo-900", "bg-fuchsia-900", "bg-[#4c1d95]"],
+  vaporwave: ["bg-rose-900", "bg-indigo-900", "bg-[#D6AE7B]"],
   mint: ["bg-emerald-900", "bg-[#0f172a]", "bg-teal-950"],
-  gold: ["bg-[#EACDA3]", "bg-[#C79D47]", "bg-[#8F6B29]"], // Full Gold Spectrum
+  gold: ["bg-[#EACDA3]", "bg-[#C79D47]", "bg-[#8F6B29]"],
 };
 
 type PaletteKey = keyof typeof PALETTES;
@@ -79,13 +64,21 @@ export default function AuroraBlobs({
     xl: "w-96 h-96",
   };
 
+  /* =========================
+     PERBAIKAN POSISI (RESPONSIF)
+     Mobile: Gunakan 'left-0' / 'right-0' (Rata Tepi).
+     Desktop (md): Gunakan '-left-20' (Bleed Out).
+     Ini mencegah scrollbar horizontal di HP.
+  ========================= */
   const positions = {
-    "top-left": "-top-20 -left-20",
-    "top-center": "-top-24 left-1/2 -translate-x-1/2",
-    "top-right": "-top-20 -right-20",
-    "bottom-left": "-bottom-20 -left-20",
-    "bottom-center": "-bottom-24 left-1/2 -translate-x-1/2",
-    "bottom-right": "-bottom-20 -right-20",
+    "top-left": "-top-10 left-0 md:-top-20 md:-left-20",
+    "top-center": "-top-12 left-1/2 -translate-x-1/2 md:-top-24",
+    "top-right": "-top-10 right-0 md:-top-20 md:-right-20",
+
+    "bottom-left": "-bottom-10 left-0 md:-bottom-20 md:-left-20",
+    "bottom-center": "-bottom-12 left-1/2 -translate-x-1/2 md:-bottom-24",
+    "bottom-right": "-bottom-10 right-0 md:-bottom-20 md:-right-20",
+
     center: "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
   };
 
@@ -94,34 +87,37 @@ export default function AuroraBlobs({
   return (
     <div
       aria-hidden="true"
-      className={`absolute ${positions[variant]} ${visibility} pointer-events-none z-0 ${sizes[size]}`}
+      // TAMBAHAN: 'max-w-full overflow-hidden md:overflow-visible'
+      // Di Mobile: Kita potong (clip) blob jika melebar, agar tidak bikin scroll.
+      // Di Desktop: Kita biarkan (visible) agar efek glownya menyebar natural.
+      className={`absolute ${positions[variant]} ${visibility} pointer-events-none z-0 ${sizes[size]} max-w-full overflow-hidden md:overflow-visible`}
     >
       <div className={`relative w-full h-full ${opacityClass}`}>
         {/* Blob 1 */}
         <div
-          className={`absolute top-0 -left-4 ${blobSizes[size]} ${colors[0]} rounded-full 
-                     mix-blend-normal md:mix-blend-screen 
-                     filter blur-3xl md:blur-[80px] 
-                     opacity-70 
-                     animate-none md:animate-blob gpu-accelerated`}
+          className={`absolute top-0 left-0 md:-left-4 ${blobSizes[size]} ${colors[0]} rounded-full 
+                      mix-blend-normal md:mix-blend-screen 
+                      filter blur-3xl md:blur-[80px] 
+                      opacity-70 
+                      animate-none md:animate-blob gpu-accelerated`}
         />
 
         {/* Blob 2 */}
         <div
-          className={`absolute top-0 -right-4 ${blobSizes[size]} ${colors[1]} rounded-full 
-                     mix-blend-normal md:mix-blend-screen 
-                     filter blur-3xl md:blur-[80px] 
-                     opacity-70 
-                     animate-none md:animate-blob gpu-accelerated md:animation-delay-2000`}
+          className={`absolute top-0 right-0 md:-right-4 ${blobSizes[size]} ${colors[1]} rounded-full 
+                      mix-blend-normal md:mix-blend-screen 
+                      filter blur-3xl md:blur-[80px] 
+                      opacity-70 
+                      animate-none md:animate-blob gpu-accelerated md:animation-delay-2000`}
         />
 
         {/* Blob 3 */}
         <div
           className={`absolute -bottom-8 left-1/4 ${blobSizes[size]} ${colors[2]} rounded-full 
-                     mix-blend-normal md:mix-blend-screen 
-                     filter blur-3xl md:blur-[80px] 
-                     opacity-70 
-                     animate-none md:animate-blob gpu-accelerated md:animation-delay-4000`}
+                      mix-blend-normal md:mix-blend-screen 
+                      filter blur-3xl md:blur-[80px] 
+                      opacity-70 
+                      animate-none md:animate-blob gpu-accelerated md:animation-delay-4000`}
         />
       </div>
     </div>

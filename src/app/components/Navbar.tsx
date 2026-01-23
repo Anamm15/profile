@@ -1,32 +1,77 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, User, Cpu, TrendingUp, Mail, Code } from "lucide-react";
+
+const NAV_LINKS = [
+  { name: "Home", href: "#home", icon: <Home size={20} /> },
+  { name: "About", href: "#about", icon: <User size={20} /> },
+  { name: "Skills", href: "#skills", icon: <Cpu size={20} /> },
+  { name: "Projects", href: "#projects", icon: <Code size={20} /> },
+  { name: "Experience", href: "#experience", icon: <TrendingUp size={20} /> },
+  { name: "Contact", href: "#contact", icon: <Mail size={20} /> },
+];
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("Home");
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Handle Resize
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
     };
 
-    handleResize();
+    handleResize(); // Init check
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const navLinks = [
-    { name: "Home", href: "#home", icon: <Home size={20} /> },
-    { name: "About", href: "#about", icon: <User size={20} /> },
-    { name: "Skills", href: "#skills", icon: <Cpu size={20} /> },
-    { name: "Projects", href: "#projects", icon: <Code size={20} /> },
-    { name: "Experience", href: "#experience", icon: <TrendingUp size={20} /> },
-    { name: "Contact", href: "#contact", icon: <Mail size={20} /> },
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < 50) {
+        setActiveTab("Home");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+      if (window.scrollY < 50) return;
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const activeLink = NAV_LINKS.find(
+            (link) => link.href === `#${entry.target.id}`,
+          );
+          if (activeLink) {
+            setActiveTab(activeLink.name);
+          }
+        }
+      });
+    };
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-40% 0px -40% 0px",
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+    NAV_LINKS.forEach((link) => {
+      const sectionId = link.href.replace("#", "");
+      const element = document.getElementById(sectionId);
+      if (element) observer.observe(element);
+    });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleLinkClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -57,7 +102,7 @@ const Navbar = () => {
            backdrop-blur-md md:backdrop-blur-xl 
            shadow-2xl shadow-black/50"
       >
-        {navLinks.map((link) => {
+        {NAV_LINKS.map((link) => {
           const isActive = activeTab === link.name;
           const isHovered = hoveredTab === link.name;
 
@@ -78,10 +123,9 @@ const Navbar = () => {
                 />
               )}
 
-              {/* Item Menu Content */}
               <motion.div
-                layout
-                className={`relative flex items-center justify-center px-3 py-2.5 rounded-full transition-all duration-300 z-10 ${
+                layout="position"
+                className={`relative flex items-center justify-center px-3 py-2.5 rounded-full transition-colors duration-300 z-10 ${
                   isActive
                     ? "text-[#EACDA3] drop-shadow-[0_0_8px_rgba(214,174,123,0.5)]"
                     : "text-white hover:text-[#EACDA3]"
