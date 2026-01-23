@@ -66,7 +66,7 @@ const Experience = () => {
         size="md"
       />
 
-      <div className="container relative z-10 mx-auto max-w-5xl px-4">
+      <div className="container relative z-10 mx-auto max-w-6xl px-6">
         <motion.div
           className="text-left"
           initial={{ opacity: 0, y: 20 }}

@@ -52,7 +52,7 @@ const itemVariants = {
 
 const Skills = () => {
   return (
-    <section id="skills" className="relative py-20 px-4">
+    <section id="skills" className="relative py-20">
       <AuroraBlobs
         variant="top-left"
         palette="royal"
@@ -81,7 +81,7 @@ const Skills = () => {
         size="sm"
       />
 
-      <div className="container relative z-10 px-4 max-w-5xl mx-auto text-left text-white">
+      <div className="container relative z-10 max-w-6xl px-6 mx-auto text-left text-white">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}

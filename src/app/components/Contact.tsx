@@ -57,7 +57,7 @@ const Contact = () => {
       <div className="absolute bottom-0 left-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 translate-y-1/2 rounded-full bg-gradient-to-br from-[#D6AE7B]/10 to-[#9F7928]/10 blur-3xl" />
 
       <motion.div
-        className="container mx-auto grid max-w-5xl grid-cols-1 gap-12 px-4 md:grid-cols-2"
+        className="container mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 md:grid-cols-2"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}

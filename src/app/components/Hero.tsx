@@ -30,7 +30,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative text-white pb-10 h-[90vh] min-h-[600px] flex flex-col justify-center overflow-hidden"
+      className="relative text-white pt-20 pb-10 h-max md:h-[70vh] min-h-[600px] flex flex-col justify-center overflow-hidden"
     >
       <AuroraBlobs
         variant="center"

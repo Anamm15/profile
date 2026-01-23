@@ -59,20 +59,12 @@ export default function AuroraBlobs({
 }: AuroraBlobsProps) {
   const colors = PALETTES[palette] || PALETTES.aurora;
 
-  /* =========================
-      Intensity (opacity)
-      Karena background sangat gelap (#0B0F19), opacity bisa sedikit dinaikkan
-      agar warna 'Gold' terlihat berpendar (glowing).
-   ========================= */
   const opacityClass = {
-    subtle: "opacity-30", // Sedikit lebih terlihat dari sebelumnya (20)
-    medium: "opacity-45", // Naik dari 35
-    strong: "opacity-60", // Naik dari 50
+    subtle: "opacity-30",
+    medium: "opacity-45",
+    strong: "opacity-60",
   }[intensity];
 
-  /* =========================
-      Size mapping
-   ========================= */
   const sizes = {
     sm: "w-[320px] h-[320px]",
     md: "w-[420px] h-[420px]",
@@ -87,18 +79,13 @@ export default function AuroraBlobs({
     xl: "w-96 h-96",
   };
 
-  /* =========================
-      Position variants
-   ========================= */
   const positions = {
     "top-left": "-top-20 -left-20",
     "top-center": "-top-24 left-1/2 -translate-x-1/2",
     "top-right": "-top-20 -right-20",
-
     "bottom-left": "-bottom-20 -left-20",
     "bottom-center": "-bottom-24 left-1/2 -translate-x-1/2",
     "bottom-right": "-bottom-20 -right-20",
-
     center: "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
   };
 
@@ -112,18 +99,29 @@ export default function AuroraBlobs({
       <div className={`relative w-full h-full ${opacityClass}`}>
         {/* Blob 1 */}
         <div
-          // Mix-blend-screen sangat bagus di background gelap untuk efek 'cahaya'
-          className={`absolute top-0 -left-4 ${blobSizes[size]} ${colors[0]} rounded-full mix-blend-screen filter blur-[80px] opacity-70 animate-blob`}
+          className={`absolute top-0 -left-4 ${blobSizes[size]} ${colors[0]} rounded-full 
+                     mix-blend-normal md:mix-blend-screen 
+                     filter blur-3xl md:blur-[80px] 
+                     opacity-70 
+                     animate-none md:animate-blob gpu-accelerated`}
         />
 
         {/* Blob 2 */}
         <div
-          className={`absolute top-0 -right-4 ${blobSizes[size]} ${colors[1]} rounded-full mix-blend-screen filter blur-[80px] opacity-70 animate-blob animation-delay-2000`}
+          className={`absolute top-0 -right-4 ${blobSizes[size]} ${colors[1]} rounded-full 
+                     mix-blend-normal md:mix-blend-screen 
+                     filter blur-3xl md:blur-[80px] 
+                     opacity-70 
+                     animate-none md:animate-blob gpu-accelerated md:animation-delay-2000`}
         />
 
         {/* Blob 3 */}
         <div
-          className={`absolute -bottom-8 left-1/4 ${blobSizes[size]} ${colors[2]} rounded-full mix-blend-screen filter blur-[80px] opacity-70 animate-blob animation-delay-4000`}
+          className={`absolute -bottom-8 left-1/4 ${blobSizes[size]} ${colors[2]} rounded-full 
+                     mix-blend-normal md:mix-blend-screen 
+                     filter blur-3xl md:blur-[80px] 
+                     opacity-70 
+                     animate-none md:animate-blob gpu-accelerated md:animation-delay-4000`}
         />
       </div>
     </div>

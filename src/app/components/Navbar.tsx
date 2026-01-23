@@ -52,11 +52,10 @@ const Navbar = () => {
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
-        // CONTAINER STYLE:
-        // bg-[#111625]/80 (Navy Glass)
-        // border-[#D6AE7B]/20 (Gold Border Tipis)
-        // shadow-black/50 (Bayangan dalam agar kontras)
-        className="pointer-events-auto flex items-center gap-2 px-2 py-2 rounded-full border border-[#D6AE7B]/20 bg-[#111625]/80 backdrop-blur-xl shadow-2xl shadow-black/50"
+        className="pointer-events-auto flex items-center gap-2 px-2 py-2 rounded-full border border-[#D6AE7B]/20 
+           bg-[#111625]/95 md:bg-[#111625]/80 
+           backdrop-blur-md md:backdrop-blur-xl 
+           shadow-2xl shadow-black/50"
       >
         {navLinks.map((link) => {
           const isActive = activeTab === link.name;

@@ -60,7 +60,7 @@ const About = () => {
       />
 
       <motion.div
-        className="container relative z-10 mx-auto max-w-5xl px-4"
+        className="container relative z-10 mx-auto max-w-6xl px-6"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
