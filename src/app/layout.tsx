@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="bg-[#0B0F19] overflow-x-hidden w-full">
         <Navbar />
         {children}

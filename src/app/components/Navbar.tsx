@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, User, Cpu, TrendingUp, Mail, Code } from "lucide-react";
 
@@ -18,13 +18,12 @@ const Navbar = () => {
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Handle Resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.matchMedia("(max-width: 768px)").matches);
     };
 
-    handleResize(); // Init check
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);

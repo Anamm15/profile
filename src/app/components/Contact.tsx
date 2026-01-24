@@ -182,7 +182,6 @@ const Contact = () => {
           <motion.button
             type="submit"
             disabled={submissionStatus === "sending"}
-            // BUTTON: Gradient Gold/Bronze (Sama seperti Hero)
             className="group flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#C79D47] to-[#8F6B29] px-6 py-3 font-semibold text-white shadow-lg shadow-[#8F6B29]/20 transition-all duration-300 hover:shadow-[#8F6B29]/40 hover:brightness-110 disabled:opacity-50"
             whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
             whileTap={{ scale: 0.95 }}

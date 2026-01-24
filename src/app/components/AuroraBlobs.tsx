@@ -32,6 +32,7 @@ interface AuroraBlobsProps {
   intensity?: "subtle" | "medium" | "strong";
   size?: Size;
   hideOnMobile?: boolean;
+  animate?: boolean;
 }
 
 export default function AuroraBlobs({
@@ -40,6 +41,7 @@ export default function AuroraBlobs({
   intensity = "medium",
   size = "lg",
   hideOnMobile = true,
+  animate = false,
 }: AuroraBlobsProps) {
   const colors = PALETTES[palette] || PALETTES.aurora;
 
@@ -89,7 +91,7 @@ export default function AuroraBlobs({
                       mix-blend-screen 
                       filter blur-3xl md:blur-[80px] 
                       opacity-70 
-                      animate-none md:animate-blob gpu-accelerated`}
+                      animate-none ${animate ? "md:animate-blob md:animation-delay-0" : ""}`}
         />
 
         {/* Blob 2 */}
@@ -98,7 +100,7 @@ export default function AuroraBlobs({
                       mix-blend-screen 
                       filter blur-3xl md:blur-[80px] 
                       opacity-70 
-                      animate-none md:animate-blob gpu-accelerated md:animation-delay-2000`}
+                      animate-none ${animate ? "md:animate-blob md:animation-delay-2000" : ""}`}
         />
 
         {/* Blob 3 */}
@@ -107,7 +109,7 @@ export default function AuroraBlobs({
                       mix-blend-screen 
                       filter blur-3xl md:blur-[80px] 
                       opacity-70 
-                      animate-none md:animate-blob gpu-accelerated md:animation-delay-4000`}
+                      animate-none ${animate ? "md:animate-blob md:animation-delay-4000" : ""} `}
         />
       </div>
     </div>

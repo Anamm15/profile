@@ -14,15 +14,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <motion.div
       variants={cardVariants}
-      // CONTAINER:
-      // bg-[#111625]/50 (Navy Gelap Transparan)
-      // border-[#D6AE7B]/10 (Emas Sangat Tipis)
-      // Hover Shadow: Glow Emas Redup
       className="group relative flex flex-col overflow-hidden rounded-xl bg-[#111625]/50 border border-[#D6AE7B]/10 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-[#D6AE7B]/30 hover:shadow-2xl hover:shadow-[#D6AE7B]/10"
     >
-      {/* Gambar dengan Overlay saat hover */}
       <div className="relative h-48 w-full overflow-hidden">
-        {/* OVERLAY: Gradient blending ke warna background utama (#0B0F19) */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent opacity-60 z-10" />
         <Image
           src={image}
@@ -34,7 +28,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
       </div>
 
       <div className="flex flex-col flex-grow p-6 z-20">
-        {/* TITLE: Hover berubah jadi Champagne (#EACDA3) */}
         <h3 className="mb-2 text-xl font-bold text-white group-hover:text-[#EACDA3] transition-colors">
           {title}
         </h3>
@@ -43,7 +36,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
           {description}
         </p>
 
-        {/* Tags */}
         <div className="mb-6 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span

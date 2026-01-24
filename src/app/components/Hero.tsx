@@ -28,20 +28,18 @@ const Hero = () => {
   };
 
   return (
-    <section
-      id="home"
-      className="relative text-white pt-40 pb-10 h-max flex flex-col "
-    >
+    <section id="home" className="relative text-white pt-40 pb-10 h-max">
       <AuroraBlobs
         variant="center"
         palette="aurora"
         intensity="subtle"
         hideOnMobile={false}
+        animate={true}
       />
 
       <div className="container relative z-10 mt-10 mx-auto flex max-w-6xl items-center justify-center px-6 h-fit">
         <motion.div
-          className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2"
+          className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
@@ -51,7 +49,7 @@ const Hero = () => {
               variants={itemVariants}
               className="flex justify-center lg:justify-start mb-6"
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-3 py-1 text-sm text-[#EACDA3] backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 py-1 text-sm text-[#EACDA3] backdrop-blur-md">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#D4AF37] opacity-50"></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-[#C5A059]"></span>

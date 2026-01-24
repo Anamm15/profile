@@ -19,7 +19,6 @@ import {
 } from "react-icons/si";
 import AuroraBlobs from "./AuroraBlobs";
 
-// Data skills tetap sama
 const skillsData = [
   { name: "JavaScript (ES6+)", icon: <SiJavascript size={40} /> },
   { name: "TypeScript", icon: <SiTypescript size={40} /> },

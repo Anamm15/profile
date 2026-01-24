@@ -15,24 +15,33 @@ const experienceData: ExperienceData[] = [
   {
     role: "Freelance Web Developer",
     company: "Multiple Clients",
-    duration: "Jan 2023 - Present",
+    duration: "Dec 2023 - Present",
     description: [
       "Designed and developed end to end websites and web applications based on client requirements.",
       "Communicated directly with clients to gather requirements, provide progress updates, and ensure satisfaction.",
       "Handled deployment, maintenance, and performance optimization across multiple projects.",
     ],
-    tags: ["React", "Next.js", "Node.js", "PostgreSQL", "Vercel", "Figma"],
+    tags: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Laravel",
+      "Golang",
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Figma",
+    ],
   },
   {
-    role: "Full Stack Developer",
-    company: "Tech Solutions Inc.",
-    duration: "Jun 2021 - Dec 2022",
+    role: "Front End Developer",
+    company: "Schematics ITS",
+    duration: "Apr 2025 - Dec 2025",
     description: [
-      "Collaborated within a team to build a complex SaaS platform from scratch.",
-      "Developed backend features using Express.js and managed MongoDB databases.",
-      "Built responsive and interactive user interfaces using TypeScript and React.",
+      "Collaborated within a team to build a complex website from scratch.",
+      "Built responsive and interactive user interfaces from figma using Next.js and Tailwind CSS.",
     ],
-    tags: ["TypeScript", "React", "Express.js", "MongoDB", "Docker", "AWS"],
+    tags: ["TypeScript", "Next.js", "Figma", "Tailwind CSS"],
   },
 ];
 
@@ -56,6 +65,7 @@ const Experience = () => {
         variant="center"
         palette="sunset"
         intensity="subtle"
+        animate={true}
         hideOnMobile={false}
       />
       <AuroraBlobs
